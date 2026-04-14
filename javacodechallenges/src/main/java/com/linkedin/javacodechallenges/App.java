@@ -5,7 +5,10 @@ import java.util.Scanner;
 public class App {
 
     public static boolean isPasswordComplex(String password) {
-        return false;
+        boolean hasNum = password.chars().anyMatch(Character::isDigit);
+        boolean hasUpper = password.chars().anyMatch(Character::isUpperCase);
+        boolean hasLower = password.chars().anyMatch(Character::isLowerCase);
+        return password.length() >= 6 && hasNum && hasUpper && hasLower;
     }
 
     public static void main(String[] args) {
